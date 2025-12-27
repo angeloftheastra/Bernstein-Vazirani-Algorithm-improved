@@ -1,0 +1,56 @@
+from qiskit import *
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+
+
+//i can add just this two number (i will scale code)
+num1= '10'
+num2 = '01'
+
+
+circut = QuantumCircuit(7,5)
+circut.h(0)
+circut.h(1)
+circut.h(2)
+circut.h(3)
+circut.h(4)
+circut.x(5)
+circut.h(5)
+circut.x(6)
+circut.h(6)
+
+circut.cx(1,5)
+circut.cx(2,6)
+
+
+
+
+
+
+circut.h(0)
+circut.h(1)
+circut.h(2)
+circut.h(3)
+circut.cx(0,2)
+circut.cx(1,2)
+circut.h(0)
+circut.h(1)
+circut.h(2)
+circut.h(3)
+
+
+
+
+circut.measure([0,1],[0,1])
+circut.measure([2,3],[2,3])
+
+
+
+circut.draw('mpl')
+
+simulator = AerSimulator()
+
+job=simulator.run(circut, shots=1)
+result=job.result()
+counts = result.get_counts()
+print(counts)
