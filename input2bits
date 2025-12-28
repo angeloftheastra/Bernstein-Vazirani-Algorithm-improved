@@ -25,13 +25,10 @@ circut.barrier()
 for index, one in enumerate(num1[::-1]):
     print(f"{index} is {one}")
     if one =="1":
-        circut.cx(index, len(num1))
+        circut.cx(index, len(num1)+len(num2))
 
 
-for index, one in enumerate(num2[::-1]):
-    print(f"{index} is {one}")
-    if one =="1":
-        circut.cx(index, len(num2)+len(num1)+1)
+
 
 circut.barrier()
 circut.h(range(len(num1)+len(num2)))
