@@ -35,13 +35,14 @@ for index, one in enumerate(num2[::-1]):
 
 
 
+
+
+
+
 circut.barrier()
 circut.h(range(len(num1)+len(num2)))
 circut.barrier()
-circut.measure(range(len(num1)*2), range(len(num1)*2))
-
-
-
+circut.measure(range((len(num1)*2)+2), range((len(num1)*2)+2))
 
 
 simulator = AerSimulator()
